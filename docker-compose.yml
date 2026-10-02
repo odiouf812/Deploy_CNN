@@ -1,0 +1,11 @@
+services:
+  seedlings-api:
+    build: .
+    image: plant-seedling-api:latest
+    ports:
+      - "8080:8000"
+    environment:
+      MODEL_PATH: /models/model.keras
+    volumes:
+      - ./models:/models:ro
+    restart: unless-stopped
